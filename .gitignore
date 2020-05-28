@@ -7,3 +7,7 @@ dist
 .coverage
 .~lock.example*
 .vscode
+lib*
+share
+pyvenv.cfg
+bin
