@@ -1,14 +1,22 @@
 import typing
 from datetime import date
 
-NHL_INCEPTION = date(1917, 11, 26)
+START_DATE = date(2005, 10, 5)
 GAMES_IN_SEASON = 1271
 
 class GameID:
     def __init__(self, id: str) -> None:
         if id.isdigit() and validate_id(id):
-            #  retrieve the game information and store it here
-            pass
+            self.game_id = id
+            '''
+            Other fields:
+            home_name
+            away_name
+            home_players
+            away_players
+            score
+            shifts
+            '''
         else:
             raise ValueError('Invalid Game ID processed')
     
@@ -19,7 +27,7 @@ class GameID:
         if len(id) != 10:
             return False
         year = id[:4]
-        if year < NHL_INCEPTION.year or year > date.today().year:
+        if year < START_DATE.year or year > date.today().year:
             return False
         game = int(id[-4:])
         if game < 1 or game > GAMES_IN_SEASON:
